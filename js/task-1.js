@@ -1,19 +1,13 @@
 
-    // Отримуємо елемент ul#categories
+
     const categoriesList = document.getElementById('categories');
+    const categoriesItems = categoriesList.querySelectorAll('li.item');
 
-    // Отримуємо всі елементи li.item у списку
-    const categoryItems = categoriesList.querySelectorAll('li.item');
+    console.log(`Number of categories: ${categoriesItems.length}`);
 
-    // Виводимо кількість категорій
-    console.log('Кількість категорій:', categoryItems.length);
-
-    // Для кожного елемента li.item у списку ul#categories
-    categoryItems.forEach(item => {
-    // Отримуємо текст заголовка елемента (тегу <h2>)
-    const categoryTitle = item.querySelector('h2').textContent;
-    // Отримуємо кількість елементів у категорії (усіх <li>, вкладених у нього)
-    const categoryItemsCount = item.querySelectorAll('ul > li').length;
-    // Виводимо дані за кожною категорією
-    console.log(`${categoryTitle} - ${categoryItemsCount} елементів`);
-});
+    categoriesItems.forEach((category) => {
+        const categoryName = category.querySelector('h2').textContent;
+        const categoryElements = category.querySelectorAll('ul li');
+        console.log(`Category: ${categoryName}`);
+        console.log(`Elements: ${categoryElements.length}`);
+    })
